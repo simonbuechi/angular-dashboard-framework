@@ -109,8 +109,8 @@ gulp.task('js', function(){
 });
 
 gulp.task('favicon', function(){
-  gulp.src('app/*.ico', 'app/*.png')
-      .pipe(gulp.dest('dist/'));
+  gulp.src(['app/*.ico', 'app/*.png'])
+      .pipe(gulp.dest('dist/app/'));
 });
 
 gulp.task('build', ['css', 'js', 'favicon']);
