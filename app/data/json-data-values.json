@@ -1,0 +1,135 @@
+{
+  "version": "1.0",
+  "encoding": "UTF-8",
+  "feed": {
+    "xmlns": "http://www.w3.org/2005/Atom",
+    "xmlns$openSearch": "http://a9.com/-/spec/opensearchrss/1.0/",
+    "xmlns$gsx": "http://schemas.google.com/spreadsheets/2006/extended",
+    "id": {
+      "$t": ""
+    },
+    "updated": {
+      "$t": "2015-07-01T21:32:59.867Z"
+    },
+    "category": [
+      {
+        "scheme": "http://schemas.google.com/spreadsheets/2006",
+        "term": "http://schemas.google.com/spreadsheets/2006#list"
+      }
+    ],
+    "title": {
+      "type": "text",
+      "$t": "1"
+    },
+    "link": [
+      {
+        "rel": "alternate",
+        "type": "application/atom+xml",
+        "href": ""
+      },
+      {
+        "rel": "http://schemas.google.com/g/2005#feed",
+        "type": "application/atom+xml",
+        "href": ""
+      },
+      {
+        "rel": "http://schemas.google.com/g/2005#post",
+        "type": "application/atom+xml",
+        "href": ""
+      },
+      {
+        "rel": "self",
+        "type": "application/atom+xml",
+        "href": ""
+      }
+    ],
+    "author": [
+      {
+        "name": {
+          "$t": "simon.buechi"
+        },
+        "email": {
+          "$t": "simon.buechi@gmail.com"
+        }
+      }
+    ],
+    "openSearch$totalResults": {
+      "$t": "2"
+    },
+    "openSearch$startIndex": {
+      "$t": "1"
+    },
+    "entry": [
+      {
+        "id": {
+          "$t": ""
+        },
+        "updated": {
+          "$t": "2015-07-01T21:32:59.867Z"
+        },
+        "category": [
+          {
+            "scheme": "http://schemas.google.com/spreadsheets/2006",
+            "term": "http://schemas.google.com/spreadsheets/2006#list"
+          }
+        ],
+        "title": {
+          "type": "text",
+          "$t": "Open tasks today"
+        },
+        "content": {
+          "type": "text",
+          "$t": "value: 6"
+        },
+        "link": [
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": ""
+          }
+        ],
+        "gsx$name": {
+          "$t": "Open tasks today"
+        },
+        "gsx$value": {
+          "$t": "6"
+        }
+      },
+      {
+        "id": {
+          "$t": ""
+        },
+        "updated": {
+          "$t": "2015-07-01T21:32:59.867Z"
+        },
+        "category": [
+          {
+            "scheme": "http://schemas.google.com/spreadsheets/2006",
+            "term": "http://schemas.google.com/spreadsheets/2006#list"
+          }
+        ],
+        "title": {
+          "type": "text",
+          "$t": "Open tasks this week"
+        },
+        "content": {
+          "type": "text",
+          "$t": "value: 25"
+        },
+        "link": [
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": ""
+          }
+        ],
+        "gsx$name": {
+          "$t": "Open tasks this week"
+        },
+        "gsx$value": {
+          "$t": "25"
+        }
+      }
+    ]
+  }
+}

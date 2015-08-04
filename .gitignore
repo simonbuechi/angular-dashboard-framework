@@ -2,13 +2,13 @@
 /node_modules/
 
 # bower
-/sample/components/
+/app/components/
 
 # gulp build
 /build/
 /.tmp/
 /dist/docs/
-/dist/sample/
+/dist/app/
 
 # netbeans
 /nbproject/

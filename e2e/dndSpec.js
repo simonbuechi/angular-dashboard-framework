@@ -32,7 +32,7 @@
 xdescribe('Drag and drop tests', function(){
 
   beforeEach(function(){
-    browser.get('http://localhost:9003/sample/index.html#/sample/03');
+    browser.get('http://localhost:9003/app/index.html');
     browser.executeScript('window.localStorage.clear();');
   });
 

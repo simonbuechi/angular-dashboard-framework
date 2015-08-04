@@ -27,10 +27,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="dashboard sample app">
-    <meta name="author" content="Sebastian Sdorra">
-
-    <title>Dashboard</title>
+    <meta name="description" content="Fireboard">
+    <meta name="author" content="Simon Buechi">
+    <title>Fireboard</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="favicon.ico" />
 
     <!-- build:css css/sample.min.css -->
     <!-- Bootstrap core CSS -->
@@ -38,7 +39,6 @@
 
     <!-- dashboard style -->
     <link href="../src/styles/main.css" rel="stylesheet">
-    <link href="widgets/clock/src/style.css" rel="stylesheet">
     <!-- endbuild -->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -59,57 +59,44 @@
       </script>
     <![endif]-->
 
-    <!-- inlince css -->
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-      }
-      /* fixe for modal-backdrop*/
-      .modal-backdrop {
-        bottom: 0;
-        /* some fixes appear to use this, too: */
-        position: fixed;
-      }
-    </style>
   </head>
 
-  <body ng-app="sample">
+  <body ng-app="fireboard">
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container" ng-controller="navigationCtrl">
+      <div class="container" ng-controller="navigationCtrl as nav">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" ng-click="toggleNav()">
+          <button type="button" class="navbar-toggle" ng-click="nav.toggleNav()">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">ADF</a>
+          <div class="navbar-sitename">
+            <a class="brand" href="#/start">Fireboard</a>
+          </div>
         </div>
-        <div collapse="navCollapsed" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li ng-class="navClass('sample/01')">
-              <a href="#/sample/01">Sample 01</a>
+        <div collapse="nav.navCollapsed" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">         
+            <li ng-class="nav.navClass('/' + item.$id)" ng-repeat="item in nav.items | orderBy: title"  ng-show="authData">
+              <a ng-href="#/{{item.id}}">{{item.title}}</a>
             </li>
-            <li ng-class="navClass('sample/02')">
-              <a href="#/sample/02">Sample 02</a>
+            <li  ng-show="authData">
+              <a style="cursor: pointer;" ng-click="nav.create()">Create</a>
             </li>
-            <li ng-class="navClass('sample/03')">
-              <a href="#/sample/03">Sample 03</a>
-            </li>
-            <li ng-class="navClass('sample/04')">
-              <a href="#/sample/04">Sample 04</a>
-            </li>
+            <li ng-show="authData">
+              <a style="cursor: pointer;" ng-click="auth.$unauth()">Log out</a>
+            </li>            
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </div>
 
     <div class="container">
-
       <div ng-view />
-
     </div>
+
+
 
     <!-- build:js js/angular.min.js -->
     <script type="text/javascript" src="components/angular/angular.js"></script>
@@ -119,7 +106,7 @@
     <script type="text/javascript" src="components/angular-route/angular-route.js"></script>
     <!-- endbuild -->
 
-    <!-- build:js js/sample.min.js -->
+    <!-- build:js js/app.min.js -->
     <!-- Sortable -->
     <script type="text/javascript" src="components/Sortable/Sortable.js"></script>
 
@@ -136,18 +123,19 @@
     <script type="text/javascript" src="../src/scripts/column.js"></script>
     <script type="text/javascript" src="../src/scripts/row.js"></script>
 
-    <!-- local storage -->
-    <script type="text/javascript" src="components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <!-- app core-->
+    <script type="text/javascript" src="scripts/app.js"></script>
 
-    <!-- sample -->
-    <script type="text/javascript" src="scripts/sample.js"></script>
-    <script type="text/javascript" src="scripts/sample-01.js"></script>
-    <script type="text/javascript" src="scripts/sample-02.js"></script>
-    <script type="text/javascript" src="scripts/sample-03.js"></script>
-    <script type="text/javascript" src="scripts/sample-04.js"></script>
+    <!-- app structures-->
+    <script type="text/javascript" src="scripts/structures.js"></script>
 
-    <!-- structures -->
-    <script type="text/javascript" src="structures/base/src/base.js"></script>
+    <!-- app services-->
+    <script type="text/javascript" src="scripts/services.js"></script>
+    <script type="text/javascript" src="scripts/firebase.js"></script>
+    
+    <!-- d3 and c3 -->
+    <script type="text/javascript" src="components/d3/d3.min.js"></script>
+    <script type="text/javascript" src="components/c3/c3.min.js"></script>
 
     <!-- news widget -->
     <script type="text/javascript" src="widgets/news/src/news.js"></script>
@@ -163,9 +151,6 @@
     <script type="text/javascript" src="widgets/markdown/components/angular-markdown-directive/markdown.js"></script>
     <script type="text/javascript" src="widgets/markdown/src/markdown.js"></script>
 
-    <!-- randommsg widget -->
-    <script type="text/javascript" src="widgets/randommsg/src/randommsg.js"></script>
-
     <!-- github widget -->
     <script type="text/javascript" src="widgets/github/components/highcharts/adapters/standalone-framework.src.js"></script>
     <script type="text/javascript" src="widgets/github/components/highcharts/highcharts.js"></script>
@@ -178,13 +163,21 @@
     <!-- version widget -->
     <script type="text/javascript" src="widgets/version/src/version.js"></script>
 
-    <!-- clock widget -->
-    <script type="text/javascript" src="widgets/clock/components/moment/moment.js"></script>
-    <script type="text/javascript" src="widgets/clock/src/clock.js"></script>
+    <!-- iframe widget -->
+    <script type="text/javascript" src="widgets/iframe/iframe.js"></script>
+
+    <!-- d3/c3 chart widget -->
+    <script type="text/javascript" src="widgets/chart/chart.js"></script>
+
+    <!-- data widget -->
+    <script type="text/javascript" src="widgets/data/data.js"></script>  
 
     <!-- inject:js -->
     <!-- endinject -->
 
     <!-- endbuild -->
+
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script> 
   </body>
 </html>

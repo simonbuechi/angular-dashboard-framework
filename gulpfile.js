@@ -108,7 +108,12 @@ gulp.task('js', function(){
       .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('build', ['css', 'js']);
+gulp.task('favicon', function(){
+  gulp.src('app/*.ico', 'app/*.png')
+      .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('build', ['css', 'js', 'favicon']);
 
 /** build docs **/
 
@@ -118,31 +123,31 @@ gulp.task('docs', function(){
     .pipe(gulp.dest('./dist/docs'));
 });
 
-/** build sample **/
+/** build app **/
 gulp.task('install-widgets', function(){
-  return gulp.src('sample/widgets/*/bower.json')
+  return gulp.src('app/widgets/*/bower.json')
              .pipe($.install());
 });
 
 gulp.task('widget-templates', ['install-widgets'], function(){
   var opts = {
     root: '{widgetsPath}',
-    module: 'sample'
+    module: 'app'
   };
-  return gulp.src('sample/widgets/*/src/*.html')
+  return gulp.src('app/widgets/*/src/*.html')
              .pipe($.minifyHtml(minifyHtmlOptions))
              .pipe($.angularTemplatecache('widgets.js', opts))
              .pipe(gulp.dest('.tmp'));
 });
 
-gulp.task('sample-templates', function(){
+gulp.task('app-templates', function(){
   var opts = {
     root: 'partials',
-    module: 'sample'
+    module: 'app'
   };
-  return gulp.src('sample/partials/*.html')
+  return gulp.src('app/partials/*.html')
              .pipe($.minifyHtml(minifyHtmlOptions))
-             .pipe($.angularTemplatecache('samples.js', opts))
+             .pipe($.angularTemplatecache('app.js', opts))
              .pipe(gulp.dest('.tmp'));
 });
 
@@ -158,14 +163,14 @@ gulp.task('dashboard-templates', function(){
 });
 
 gulp.task('copy-font', function(){
-  gulp.src('sample/components/bootstrap/dist/fonts/*')
-      .pipe(gulp.dest('dist/sample/fonts'));
+  gulp.src('app/components/bootstrap/dist/fonts/*')
+      .pipe(gulp.dest('dist/app/fonts'));
 });
 
-gulp.task('sample', ['widget-templates', 'sample-templates', 'dashboard-templates', 'copy-font'], function(){
+gulp.task('app', ['widget-templates', 'app-templates', 'dashboard-templates', 'copy-font'], function(){
   var templates = gulp.src('.tmp/*.js', {read: false});
   var assets = $.useref.assets();
-  gulp.src('sample/index.html')
+  gulp.src('app/index.html')
       // inject templates
       .pipe($.inject(templates, {relative: true}))
       .pipe(assets)
@@ -177,7 +182,7 @@ gulp.task('sample', ['widget-templates', 'sample-templates', 'dashboard-template
       .pipe(assets.restore())
       .pipe($.useref())
       .pipe($.revReplace())
-      .pipe(gulp.dest('dist/sample'));
+      .pipe(gulp.dest('dist/app'));
 });
 
 /** livereload **/
@@ -187,15 +192,15 @@ gulp.task('watch', function(){
     'src/scripts/*.js',
     'src/styles/*.css',
     'src/templates/*.html',
-    'sample/*.html',
-    'sample/scripts/*.js',
-    'sample/partials/*.html',
-    'sample/widgets/*/*.js',
-    'sample/widgets/*/*.css',
-    'sample/widgets/*/*.html',
-    'sample/widgets/*/src/*.js',
-    'sample/widgets/*/src/*.css',
-    'sample/widgets/*/src/*.html'
+    'app/*.html',
+    'app/scripts/*.js',
+    'app/partials/*.html',
+    'app/widgets/*/*.js',
+    'app/widgets/*/*.css',
+    'app/widgets/*/*.html',
+    'app/widgets/*/src/*.js',
+    'app/widgets/*/src/*.css',
+    'app/widgets/*/src/*.html'
   ];
   gulp.watch(paths).on('change', function(file){
     gulp.src(file.path)
@@ -207,11 +212,11 @@ gulp.task('webserver', ['install-widgets'], function(){
   connect.server({
     port: 9001,
     livereload: true,
-    // redirect / to /sample
+    // redirect / to /app
     middleware: function() {
       return [
         modRewrite([
-          '^/$ /sample/ [R]'
+          '^/$ /app/ [R]'
         ])
       ];
     }
@@ -264,6 +269,6 @@ gulp.task('e2e', ['e2e-server', 'webdriver_update'], function(cb) {
 });
 
 /** shorthand methods **/
-gulp.task('all', ['build', 'docs', 'sample']);
+gulp.task('all', ['build', 'docs', 'app']);
 
 gulp.task('default', ['build']);

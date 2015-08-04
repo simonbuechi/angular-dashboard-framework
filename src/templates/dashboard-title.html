@@ -1,0 +1,25 @@
+<div class="dashboard-config">
+  <p>
+    <strong>{{model.title}} ({{model.id}})</strong> 
+    <span class="pull-right config-icons">
+      <a href="" ng-if="editMode" title="add new widget" ng-click="addWidgetDialog()">
+        <i class="glyphicon glyphicon-plus-sign"></i> Add
+      </a>
+      <a href="" ng-if="editMode" title="edit dashboard" ng-click="editDashboardDialog()">
+        <i class="glyphicon glyphicon-cog"></i> Settings
+      </a>
+      <a href="" ng-if="editMode" title="delete dashboard" ng-click="deleteDashboardDialog()">
+        <i class="glyphicon glyphicon-remove adf-flip"></i> Delete
+      </a>
+      <a href="" ng-if="editMode" title="undo changes" ng-click="cancelEditMode()">
+        <i class="glyphicon glyphicon-repeat adf-flip"></i> Cancel
+      </a>
+        <a href="" ng-if="editMode" title="save changes" ng-click="toggleEditMode()">   
+          <i class="glyphicon glyphicon-ok"></i> Save
+        </a>
+        <a href="" ng-if="!editMode" title="edit mode" ng-click="toggleEditMode()">
+          <i class="glyphicon glyphicon-edit"></i> Edit
+        </a>   
+    </span>
+  </p>
+</div>
