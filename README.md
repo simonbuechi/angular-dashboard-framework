@@ -1,18 +1,16 @@
-# angular-dashboard-framework
+Fireboard
+===================
+A dashboard built with [Angular Dashboard Framework](https://github.com/sdorra/angular-dashboard-framework) and [Firebase](https://www.firebase.com). It shows data from json, markdown files and iframes, but does not serve as a data storage / aggregation. Simple charts using [D3](http://d3js.org) and [C3](http://c3js.org).
 
-> Dashboard framework with Angular.js and Twitter Bootstrap.
+Demo
+----
+A live demo can be viewed [here](http://simonbuechi.github.io/angular-firebase-dashboard/). 
 
-The api of angular-dashboard-framework (adf) is documented [here](http://sdorra.github.io/angular-dashboard-framework/docs/). A getting
-started guide can be found [here](https://github.com/sdorra/angular-dashboard-framework/wiki/Getting-started).
-Follow me ([@ssdorra](https://twitter.com/ssdorra)) on twitter for latest updates and news about adf.
+Setup
+======
 
-## Demo
-
-A live demo of the adf can be viewed [here](http://sdorra.github.io/angular-dashboard-framework/). The demo uses html5 localStorage to store the state of the dashboard. The source of the demo can be found [here](https://github.com/sdorra/angular-dashboard-framework/tree/master/sample).
-
-A more dynamic example can be found [here](https://github.com/sdorra/adf-dynamic-example).
-
-## Build from source
+Install
+-------
 
 Install bower and grunt:
 
@@ -24,8 +22,8 @@ npm install -g gulp
 Clone the repository:
 
 ```bash
-git clone https://github.com/sdorra/angular-dashboard-framework
-cd angular-dashboard-framework
+git clone https://github.com/simonbuechi/angular-firebase-dashboard
+cd angular-firebase-dashboard
 ```
 
 Install npm and bower dependencies:
@@ -35,13 +33,28 @@ npm install
 bower install
 ```
 
-Checkout git submodule widgets:
 
-```bash
-git submodule init
-git submodule update
+Firebase setup
+---------------
+1. Create account on http://www.firebase.com
+2. Create new app
+3. Replace firebase URL in scripts/app.js
+```  
+.value('firebaseUrl', 'https://YOUR_APP.firebaseio.com')
+.value('firebaseDashboardsUrl', 'https://YOUR_APP.firebaseio.com/dashboards/')
+```
+4. Update security rules in your Firebase app:
+```
+{
+  "rules": {
+        ".read": "auth != null",
+        ".write": "auth != null"
+  }
+}
 ```
 
+Run
+----
 You can start the sample dashboard, by using the serve gulp task:
 
 ```bash
@@ -58,26 +71,37 @@ gulp all
 The sample and the final build of angular-dashboard-framework are now in the dist directory.
 
 
-## License
+Implementation
+============
 
-    The MIT License
+- Angular Dashboard Framework
+- Bootstrap
+- Angular Bootstrap
+- D3 visualization library
+- C3 D3-based reusable chart library
+- ...
+- Color palette: http://www.google.com/design/spec/style/color.html#color-color-palette
 
-    Copyright (c) 2015, Sebastian Sdorra
 
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
+Currently implemented data sources
+-----------------------
+- RSS feed
+- JSON
+- .md file
+- directly entered (markdown) text
+- URL, shown as iframe
 
-    The above copyright notice and this permission notice shall be included in
-    all copies or substantial portions of the Software.
+Widgets
+--------
+- markdown (text or file)
+- iframe (url)
+- news (rss)
+- data/numbers (json)
+- chart (json)
 
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE.
+
+ToDo
+======
+
+- Clean up css
+- 
