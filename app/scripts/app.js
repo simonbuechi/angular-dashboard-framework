@@ -67,10 +67,9 @@ angular.module('fireboard', ['adf',
         redirectTo: '/start'
       });
   })
-  .controller('navigationCtrl', function($scope, $q, $location, storeService,  $rootScope, loginService){
+  .controller('navigationCtrl', function($scope, $q, $location, storeService,  $rootScope, loginService, demoService){
     var nav = this;
     nav.navCollapsed = true;
-
     $rootScope.auth.$onAuth(function(authData) {
       $scope.authData = authData;
       if (authData) {
@@ -87,7 +86,7 @@ angular.module('fireboard', ['adf',
        $location.path('/start');
     };
     $scope.resetDefault = function() {
-       storeService.resetDefault();
+       demoService.resetDefault();
     };
     this.toggleNav = function(){
       nav.navCollapsed = ! nav.navCollapsed;
@@ -121,20 +120,19 @@ angular.module('fireboard', ['adf',
       console.log("new dashboard created user: " + $rootScope.uid + " id: " + id);
     };
 
-
-    nav.items = storeService.getAll();
-
-
     $scope.$on('navChanged', function(){
       nav.items = storeService.getAll();
     });
+
+    if (typeof $rootScope.uid === "undefined" && $rootScope.auth) {
+      $rootScope.uid = $rootScope.auth.$getAuth().uid;    
+    }
+
+    nav.items = storeService.getAll();
   })
   .controller('dashboardCtrl', function($location, $rootScope, $scope, $routeParams, storeService, data){
     this.name = $routeParams.id;
     this.model = data;
-
-    console.log("this.model");
-    console.log(this.model);
 
     $scope.$on('adfDashboardDeleted', function(event, name) {
       console.log("adfDashboardDeleted triggered");

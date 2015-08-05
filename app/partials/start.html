@@ -20,18 +20,18 @@
 				<input type="password" name="password" class="form-control" ng-model="password" ng-minlength="8">
 				<p class="help-block" ng-show="signinForm.password.$error.minlength">Min password length is 8 characters.</p>
 			</div>  
-			<button ng-disabled="!email || !password" type="button" ng-click="login($event)" class="btn btn-lg btn-block">Sign In</button>
+			<button ng-disabled="!email || !password" type="button" ng-click="login($event)" class="btn">Sign In</button>
 		</form>
 		<p ng-if="error">Error: <strong>{{ error }}</strong></p>
 	</div> 
 	<div ng-show="authData" class="col-sm-12 col-md-6 col-lg-6">
 		<h2>Account</h2>
 		<p>Logged in user: <strong>{{ authData.uid }}</strong></p>
-		<button ng-click="logout($event)">Logout</button>
+		<button ng-click="logout($event)" class="btn">Logout</button>
 		<p ng-if="error">Error: <strong>{{ error }}</strong></p>
 		<p></p>
 		<h2>Reset default dashboard</h2>
-		<button ng-click="resetDefault()">Reset to Default</button>		
+		<button ng-click="resetDefault()" class="btn">Reset to Default</button>		
 	</div>
 </div>
 

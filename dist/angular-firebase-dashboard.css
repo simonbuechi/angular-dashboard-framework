@@ -150,7 +150,9 @@ pre, code {
   color: #ECEFF1;
   letter-spacing: 1px;
 }
-
+.config-icons a {
+  padding-left: 10px;
+}
 .bignumber-value {
   font-size: 40px;
   line-height: 1;
@@ -185,16 +187,15 @@ pre, code {
 .modal-header {
   border:0;
 }
-.btn {
+.btn, .btn-primary, button {
   color: #263238;
-  background-color: #CFD8DC;
-}
-.btn-primary {
-  background-color: #444;
+  background-color: #B0BEC5;
   border: 0;
 }
-.btn-primary:hover {
-  background-color: #777;
+
+.btn-primary:hover, .btn:hover {
+  background-color: #ECEFF1;
+  color: #263238;
 }
 .alert {
   border-radius: 0;

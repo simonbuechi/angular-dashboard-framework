@@ -447,7 +447,7 @@ angular.module('adf')
               }
             }
 
-            if (model) {
+            if (model.id) {
               if (!model.title){
                 model.title = 'Dashboard';
               }
@@ -456,7 +456,7 @@ angular.module('adf')
               }
               $scope.model = model;
             } else {
-              $log.error('could not find or create model');
+              $scope.model = {};
             }
           }
         }, true);

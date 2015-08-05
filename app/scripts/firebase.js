@@ -53,7 +53,7 @@ angular.module('fireboard')
           },
           logout: function() {
             assertAuth();
-            auth.$logout();
+            auth.$unauth();
           },
           getAuth: function() {
             auth.$getAuth();
@@ -75,11 +75,6 @@ angular.module('fireboard')
   .factory('storeService', function($firebaseObject, $firebaseArray, $firebaseUtils, $rootScope, FIREBASEURL){
 
     return {
-      resetDefault: function(){     
-        var ref = new Firebase(FIREBASEURL + "/users/" + $rootScope.uid + "/boards/");
-        $firebaseObject(ref).$remove(); 
-
-      },
       getAll: function(){
         if ($rootScope.uid) {
           var ref = new Firebase(FIREBASEURL + "/users/" + $rootScope.uid + "/boards/");
