@@ -7,8 +7,7 @@
 # gulp build
 /build/
 /.tmp/
-/dist/docs/
-/dist/app/
+/dist/
 
 # netbeans
 /nbproject/
