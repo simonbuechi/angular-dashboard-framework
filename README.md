@@ -106,3 +106,4 @@ ToDo / Issues
 - Clean implementation of widgets as submodules
 - Make chart and edit widget editable via UI 
 - More efficient data queries to/from Firebase
+- Submodules (widgets) are not loaded properly, sometimes. As a workaround, use git command (e.g. git submodule add https://github.com/simonbuechi/adf-widget-markdown app/widgets/markdown)
