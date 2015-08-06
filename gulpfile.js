@@ -113,6 +113,7 @@ gulp.task('favicon', function(){
       .pipe(gulp.dest('dist/app/'));
 });
 
+
 gulp.task('build', ['css', 'js', 'favicon']);
 
 /** build docs **/
