@@ -113,8 +113,12 @@ gulp.task('favicon', function(){
       .pipe(gulp.dest('dist/app/'));
 });
 
+gulp.task('sampledata', function(){
+  gulp.src('app/sample-data/*')
+      .pipe(gulp.dest('dist/app/sample-data/'));
+});
 
-gulp.task('build', ['css', 'js', 'favicon']);
+gulp.task('build', ['css', 'js', 'favicon', 'sampledata']);
 
 /** build docs **/
 
@@ -133,7 +137,7 @@ gulp.task('install-widgets', function(){
 gulp.task('widget-templates', ['install-widgets'], function(){
   var opts = {
     root: '{widgetsPath}',
-    module: 'app'
+    module: 'fireboard'
   };
   return gulp.src('app/widgets/*/src/*.html')
              .pipe($.minifyHtml(minifyHtmlOptions))
@@ -144,7 +148,7 @@ gulp.task('widget-templates', ['install-widgets'], function(){
 gulp.task('app-templates', function(){
   var opts = {
     root: 'partials',
-    module: 'app'
+    module: 'fireboard'
   };
   return gulp.src('app/partials/*.html')
              .pipe($.minifyHtml(minifyHtmlOptions))

@@ -1,9 +1,6 @@
 [submodule "app/widgets/clock"]
 	path = app/widgets/clock
 	url = https://github.com/sdorra/adf-widget-clock
-[submodule "app/widgets/github"]
-	path = app/widgets/github
-	url = https://github.com/sdorra/adf-widget-github
 [submodule "app/widgets/linklist"]
 	path = app/widgets/linklist
 	url = https://github.com/sdorra/adf-widget-linklist

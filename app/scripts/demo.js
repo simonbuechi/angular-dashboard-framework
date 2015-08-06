@@ -115,19 +115,19 @@ angular.module('fireboard')
 	            type: "markdownfile",
 	            title: "Info",
 	            config: { 
-	              url: "data/widget-markdown-widget.md"
+	              url: "sample-data/widget-markdown-widget.md"
 	            }
 	          },{
 	            type: "bignumber",
 	            config: { 
-	              url: "data/json-data-values-thresholds.json",
+	              url: "sample-data/json-data-values-thresholds.json",
 	              thresholds: true
 	            },
 	            title: "data example big"            
 	          },{
 	            type: "smallnumber",
 	            config: { 
-	              url: "data/json-data-values.json"
+	              url: "sample-data/json-data-values.json"
 	            },
 	            title: "data example small"            
 	          }]
@@ -152,7 +152,7 @@ angular.module('fireboard')
 	            type: "markdownfile",
 	            title: "Info",
 	            config: {
-	              url: "data/widget-markdown-chart.md"
+	              url: "sample-data/widget-markdown-chart.md"
 	            }
 	          }]
 	        },
@@ -162,7 +162,7 @@ angular.module('fireboard')
 	            type: "chart",
 	            title: "Column chart",
 	            config: { 
-	              url: "data/json-data-chart-category.json",
+	              url: "sample-data/json-data-chart-category.json",
 	              type: "bar",
 	              height: "160",
 	              showLegend: false,
@@ -173,7 +173,7 @@ angular.module('fireboard')
 	            type: "chart",
 	            title: "Bar chart",
 	            config: { 
-	              url: "data/json-data-chart-category.json",
+	              url: "sample-data/json-data-chart-category.json",
 	              type: "bar",
 	              height: "160",
 	              showLegend: false,
@@ -184,7 +184,7 @@ angular.module('fireboard')
 	            type: "chart",
 	            title: "Spline chart",
 	            config: { 
-	              url: "data/json-data-chart.json",
+	              url: "sample-data/json-data-chart.json",
 	              type: "spline",
 	              height: "160",
 	              showLegend: false,
@@ -195,7 +195,7 @@ angular.module('fireboard')
 	            type: "chart",
 	            title: "Line chart",
 	            config: { 
-	              url: "data/json-data-chart.json",
+	              url: "sample-data/json-data-chart.json",
 	              type: "line",
 	              height: "160",
 	              showLegend: false,

@@ -124,7 +124,8 @@ angular.module('fireboard', ['adf',
       nav.items = storeService.getAll();
     });
 
-    if (typeof $rootScope.uid === "undefined" && $rootScope.auth) {
+//    if (typeof $rootScope.uid === "undefined" && $rootScope.auth) {
+    if ($rootScope.auth.$getAuth()) {
       $rootScope.uid = $rootScope.auth.$getAuth().uid;    
     }
 
