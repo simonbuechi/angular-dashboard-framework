@@ -10,6 +10,3 @@
 [submodule "app/widgets/version"]
 	path = app/widgets/version
 	url = https://github.com/sdorra/adf-widget-version
-[submodule "app/widgets/markdown"]
-	path = app/widgets/markdown
-	url = https://github.com/simonbuechi/adf-widget-markdown
