@@ -100,8 +100,9 @@ Widgets
 - chart (json)
 
 
-ToDo
+ToDo / Issues
 ======
 
-- Clean up css
-- 
+- Clean implementation of widgets as submodules
+- Make chart and edit widget editable via UI 
+- More efficient data queries to/from Firebase
