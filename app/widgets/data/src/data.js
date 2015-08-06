@@ -8,7 +8,7 @@ angular.module('adf.widget.data', ['adf.provider'])
         title: 'Big Number',
         description: 'Display json data in big size',
         controller: 'bignumberCtrl',
-        templateUrl: '{widgetsPath}/data/view-big.html',
+        templateUrl: '{widgetsPath}/data/src/view-big.html',
         resolve: {
           feed: function(jsonNumberService, config){
             if (config.url){
@@ -21,7 +21,7 @@ angular.module('adf.widget.data', ['adf.provider'])
         title: 'Small Number',
         description: 'Display json data in small size',
         controller: 'smallnumberCtrl',
-        templateUrl: '{widgetsPath}/data/view-small.html',
+        templateUrl: '{widgetsPath}/data/src/view-small.html',
         resolve: {
           feed: function(jsonNumberService, config){
             if (config.url){
@@ -34,7 +34,7 @@ angular.module('adf.widget.data', ['adf.provider'])
         title: 'Big Number with Drupal JSON Feed',
         description: 'Display data from Drupal',
         controller: 'smallnumberCtrl',
-        templateUrl: '{widgetsPath}/data/view-small.html',
+        templateUrl: '{widgetsPath}/data/src/view-small.html',
         resolve: {
           feed: function(jsonDrupalService, config){
             if (config.url){
@@ -47,7 +47,7 @@ angular.module('adf.widget.data', ['adf.provider'])
         title: 'Todoist data',
         description: 'Display data from Todoist',
         controller: 'todoistCtrl',
-        templateUrl: '{widgetsPath}/data/view-todoist.html',
+        templateUrl: '{widgetsPath}/data/src/view-todoist.html',
         resolve: {
           feed: function(todoistService, config){
             if (config.token){

@@ -6,8 +6,8 @@ angular.module('adf.widget.iframe', ['adf.provider'])
       .widget('iframe', {
         title: 'iframe',
         description: 'Embed an external page into the dashboard',
-        templateUrl: '{widgetsPath}/iframe/view.html',
-        edit: {templateUrl: '{widgetsPath}/iframe/edit.html'},
+        templateUrl: '{widgetsPath}/iframe/src/view.html',
+        edit: {templateUrl: '{widgetsPath}/iframe/src/edit.html'},
         controller: 'iframeController',
         controllerAs: 'iframe'
       });

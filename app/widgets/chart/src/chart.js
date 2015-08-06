@@ -7,7 +7,7 @@ angular.module('adf.widget.chart', ['adf.provider', 'angular-c3'])
       .widget('chart', {
         title: 'D3/C3 chart',
         description: 'Displays chart from JSON',
-        templateUrl: '{widgetsPath}/chart/view.html',
+        templateUrl: '{widgetsPath}/chart/src/view.html',
         controller: 'chartCtrl',
         resolve: {
           feed: function(jsonChartService, config){
@@ -20,7 +20,7 @@ angular.module('adf.widget.chart', ['adf.provider', 'angular-c3'])
       .widget('drupalchart', {
         title: 'D3/C3 chart from Drupal',
         description: 'Displays chart from JSON',
-        templateUrl: '{widgetsPath}/chart/view.html',
+        templateUrl: '{widgetsPath}/chart/src/view.html',
         controller: 'chartCtrl',
         resolve: {
           feed: function(jsonDrupalService, config){
