@@ -1,0 +1,34 @@
+<div ng-controller="navigationCtrl as nav"> 
+	<div ng-hide="authData" class="col-sm-12 col-md-6 col-lg-6">
+		<h2>Login</h2>
+		<form class="form-signin" name="signinForm" role="form">
+			<div class="form-group" ng-class="{ 'has-error' : signinForm.email.$invalid }">
+				<label>Email</label>
+				<input type="email" name="email" class="form-control" ng-model="email">
+				<p class="help-block" ng-show="signinForm.email.$invalid">Enter a valid email.</p>
+			</div> 
+			<div class="form-group" ng-class="{ 'has-error' : signinForm.password.$invalid }">
+				<label>Password</label>
+				<input type="password" name="password" class="form-control" ng-model="password" ng-minlength="8">
+				<p class="help-block" ng-show="signinForm.password.$error.minlength">Min password length is 8 characters.</p>
+			</div>  
+			<button ng-disabled="!email || !password" type="button" ng-click="login($event)" class="btn">Sign In</button>
+		</form>
+		<p ng-if="error">Error: <strong>{{ error }}</strong></p>
+	</div> 
+	<div ng-show="authData" class="col-sm-12 col-md-6 col-lg-6">
+		<h2>Account</h2>
+		<p>Logged in user: <strong>{{ authData.uid }}</strong></p>
+		<button ng-click="logout($event)" class="btn">Logout</button>
+		<p ng-if="error">Error: <strong>{{ error }}</strong></p>
+	</div>
+</div>
+
+
+      
+    
+
+
+    
+       
+ 

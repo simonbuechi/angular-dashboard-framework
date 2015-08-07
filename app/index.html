@@ -78,7 +78,7 @@
         </div>
         <div collapse="nav.navCollapsed" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">         
-            <li ng-class="nav.navClass('/' + item.$id)" ng-repeat="item in nav.items | orderBy: id"  ng-show="authData">
+            <li ng-class="nav.navClass('/' + item.$id)" ng-repeat="item in nav.items | orderBy: '-item.id'"  ng-show="authData">
               <a ng-href="#/{{item.id}}">{{item.title}}</a>
             </li>
             <li  ng-show="authData">
