@@ -43,12 +43,20 @@ Firebase setup
 .value('firebaseUrl', 'https://YOUR_APP.firebaseio.com')
 .value('firebaseDashboardsUrl', 'https://YOUR_APP.firebaseio.com/dashboards/')
 ```
-4. Update security rules in your Firebase app:
+4. Set security rules in your Firebase app:
 ```
 {
   "rules": {
-        ".read": "auth != null",
-        ".write": "auth != null"
+    "users": {
+      "$user_id": {
+        ".write": "$user_id === auth.uid",
+        ".read": "$user_id === auth.uid"
+      }
+    },
+    "public": {
+    	".read": true,
+      ".write": "auth != null"
+    }
   }
 }
 ```
