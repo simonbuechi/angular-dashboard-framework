@@ -1,5 +1,5 @@
 <div class="dashboard-config">
-  <p>
+  <p ng-if="editable">
     <strong>{{model.title}} ({{model.id}})</strong> 
     <span class="pull-right config-icons">
       <a href="" ng-if="editMode" title="add new widget" ng-click="addWidgetDialog()">

@@ -87,6 +87,10 @@ angular.module('fireboard')
           return $firebaseObject(ref).$loaded();
         }
       },
+      getByPath: function(path){
+        var ref = new Firebase(FIREBASEURL + path);
+        return $firebaseObject(ref).$loaded();
+      },      
       set: function(id, data){
         data.id = id;
         var ref = new Firebase(FIREBASEURL + "/users/" + $rootScope.uid  + "/boards/" + id);

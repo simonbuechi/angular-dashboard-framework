@@ -1,6 +1,5 @@
-<div ng-controller="navigationCtrl as nav"> 
-	<div ng-hide="authData" class="col-sm-12 col-md-6 col-lg-6">
-		<h2>Login</h2>
+<div ng-controller="navigationCtrl as nav">
+	<div ng-hide="authData">
 		<form class="form-signin" name="signinForm" role="form">
 			<div class="form-group" ng-class="{ 'has-error' : signinForm.email.$invalid }">
 				<label>Email</label>
@@ -14,21 +13,16 @@
 			</div>  
 			<button ng-disabled="!email || !password" type="button" ng-click="login($event)" class="btn">Sign In</button>
 		</form>
+		<p>You cannot create new accounts at the moment.</p>
 		<p ng-if="error">Error: <strong>{{ error }}</strong></p>
 	</div> 
-	<div ng-show="authData" class="col-sm-12 col-md-6 col-lg-6">
+	<div ng-show="authData">
 		<h2>Account</h2>
 		<p>Logged in user: <strong>{{ authData.uid }}</strong></p>
 		<button ng-click="logout($event)" class="btn">Logout</button>
 		<p ng-if="error">Error: <strong>{{ error }}</strong></p>
+		<p></p>
+		<h2>Reset default dashboard</h2>
+		<button ng-click="resetDefault()" class="btn">Reset to Default</button>		
 	</div>
 </div>
-
-
-      
-    
-
-
-    
-       
- 

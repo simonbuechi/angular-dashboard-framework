@@ -1,24 +1,11 @@
-# Widgets
+# Fireboard
 
-## Configuration
+A dashboard built with Angular Dashboard Framework and Firebase. It shows data from json, markdown files and iframes, but does not serve as a data storage / aggregation. Simple charts using D3 and C3. 
 
-```javascript
-widgets: [{
-	type: "news",
-	title: "news/rss example",
-	config: {
-		url: "http://feeds.feedburner.com/simonbuechi-imdb-ratings"
-	}
-},
-{...}
-]
+## Purpose
 
-```
-    
-## Types
+As a quantified self user, I want all my key indicators und relevant data in one place, shown in a comprehensible way. This dashboard allows you to configure your data.
 
-* news (RSS feed)
-* data (JSON file)
-* chart (JSON file)
-* markdown (text or md-file)
-* iframe (URL)
+## Demo
+
+Login with a test user to see sample widget configurations.

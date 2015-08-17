@@ -31,6 +31,7 @@ angular.module('fireboard', ['adf',
                             'adf.widget.iframe', 
                             'adf.widget.chart', 
                             'adf.widget.data', 
+                            'adf.widget.login', 
                             'ngRoute'])
   .run(['loginService', '$rootScope', '$location', 'FIREBASEURL', function(loginService, $rootScope, $location, FIREBASEURL) {
     $rootScope.auth = loginService.init('/start');
@@ -48,12 +49,19 @@ angular.module('fireboard', ['adf',
 
     $routeProvider
       .when('/start', {
-        templateUrl: 'partials/start.html',
+        controller: 'dashboardCtrl',
+        controllerAs: 'dashboard',
+        templateUrl: 'partials/public.html',
+        resolve: {
+          data: function($route, storeService){
+            return storeService.getByPath("/public/boards/start");
+          }
+        }
       })
       .when('/:id', {
         controller: 'dashboardCtrl',
         controllerAs: 'dashboard',
-        templateUrl: 'partials/sample.html',
+        templateUrl: 'partials/private.html',
         resolve: {
           "currentAuth": ["Auth", function(Auth) {
             return Auth.$requireAuth();
