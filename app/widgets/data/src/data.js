@@ -5,10 +5,13 @@ angular.module('adf.widget.data', ['adf.provider'])
 
     dashboardProvider
       .widget('bignumber', {
-        title: 'Big Number',
+        title: 'Data Big',
         description: 'Display json data in big size',
         controller: 'bignumberCtrl',
         templateUrl: '{widgetsPath}/data/src/view-big.html',
+        edit: {
+          templateUrl: '{widgetsPath}/data/src/edit.html'
+        },
         resolve: {
           feed: function(jsonNumberService, config){
             if (config.url){
@@ -18,10 +21,13 @@ angular.module('adf.widget.data', ['adf.provider'])
         }
       })
       .widget('smallnumber', {
-        title: 'Small Number',
+        title: 'Data Small',
         description: 'Display json data in small size',
         controller: 'smallnumberCtrl',
         templateUrl: '{widgetsPath}/data/src/view-small.html',
+        edit: {
+          templateUrl: '{widgetsPath}/data/src/edit.html'
+        },
         resolve: {
           feed: function(jsonNumberService, config){
             if (config.url){
@@ -31,10 +37,13 @@ angular.module('adf.widget.data', ['adf.provider'])
         }
       })
       .widget('drupalbignumber', {
-        title: 'Big Number with Drupal JSON Feed',
+        title: 'Data Big Drupal',
         description: 'Display data from Drupal',
         controller: 'smallnumberCtrl',
         templateUrl: '{widgetsPath}/data/src/view-small.html',
+        edit: {
+          templateUrl: '{widgetsPath}/data/src/edit.html'
+        },
         resolve: {
           feed: function(jsonDrupalService, config){
             if (config.url){
@@ -44,10 +53,13 @@ angular.module('adf.widget.data', ['adf.provider'])
         }
       })
       .widget('todoist', {
-        title: 'Todoist data',
+        title: 'Data Todoist',
         description: 'Display data from Todoist',
         controller: 'todoistCtrl',
         templateUrl: '{widgetsPath}/data/src/view-todoist.html',
+        edit: {
+          templateUrl: '{widgetsPath}/data/src/edit-todoist.html'
+        },
         resolve: {
           feed: function(todoistService, config){
             if (config.token){
@@ -57,18 +69,21 @@ angular.module('adf.widget.data', ['adf.provider'])
         }
       });
   })
-  .controller('bignumberCtrl', function($scope, feed){
+  .controller('bignumberCtrl', function($scope, feed, config){
     $scope.feed = feed;
 
     $scope.highlightClass = function(entry) {
-      if (entry.value > entry.threshigh && entry.threshigh) {
-        return 'greenflag';
-      } else if (entry.value < entry.threslow && entry.threslow) {
-        return 'redflag'
-      } 
-      else {
-        return '';
+
+      if (entry.threshigh) {
+        if((entry.value > entry.threshigh && !config.inverse) || (entry.value < entry.threslow && config.inverse)) {
+          return 'greenflag';
+        } else if ((entry.value < entry.threslow && !config.inverse) || (entry.value > entry.threshigh && config.inverse)) {
+          return 'redflag'
+        } else {
+          return '';
+        }
       }
+
     };
   })
   .controller('smallnumberCtrl', function($scope, feed){

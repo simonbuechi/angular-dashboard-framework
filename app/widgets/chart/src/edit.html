@@ -3,14 +3,20 @@
     <label for="url">Data source URL</label>
     <input type="url" class="form-control" id="url" ng-model="config.url" placeholder="Enter data source url">
     <label for="type">Type</label>
-    <input type="text" class="form-control" id="type" ng-model="config.type" placeholder="spline">
+    <input type="text" class="form-control" id="type" ng-model="config.type" placeholder="spline, line, bar, pie, ...">
     <label for="height">Height</label>
-    <input type="text" class="form-control" id="height" ng-model="config.height" placeholder="Enter height (e.g. 320px)">
+    <input type="text" class="form-control" id="height" ng-model="config.height" placeholder="Enter height (e.g. 320)">
     <label for="showLegend">showLegend</label>
-    <input type="checkbox" class="form-control" ng-model="config.showLegend" name="vehicle" value="showLegend">
+    <input type="checkbox" class="form-control" ng-model="config.showLegend" name="showLegend" value="showLegend">
     <label for="showTooltip">showTooltip</label>
-    <input type="checkbox" class="form-control" ng-model="config.showTooltip" name="vehicle" value="showTooltip">
-    <label for="timeseries">timeseries</label>
-    <input type="checkbox" class="form-control" ng-model="config.timeseries" name="vehicle" value="timeseries">        
+    <input type="checkbox" class="form-control" ng-model="config.showTooltip" name="showTooltip" value="showTooltip">
+    <label for="timeseries">Time series</label>
+    <input type="checkbox" class="form-control" ng-model="config.timeseries" name="timeseries" value="timeseries">        
+    <label for="rotated">Rotated by 90 degrees</label>
+    <input type="checkbox" class="form-control" ng-model="config.rotated" name="rotated" value="rotated">    
+    <label for="trendtolerance">Tolerance (For trend line only)</label>
+    <input type="text" class="form-control" ng-model="config.trendtolerance" name="trendtolerance" value="trendtolerance">    
+    <label for="trendinverse">Inverse (For trend line only)</label>
+    <input type="checkbox" class="form-control" ng-model="config.trendinverse" name="trendinverse" value="trendinverse">  
   </div>
 </form>
