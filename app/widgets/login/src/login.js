@@ -5,7 +5,7 @@ angular.module('adf.widget.login', ['adf.provider'])
     dashboardProvider
       .widget('login', {
         title: 'Login',
-        description: 'Login form',
+        description: 'Login form and account overview',
         templateUrl: '{widgetsPath}/login/src/view.html'    
       });
   })

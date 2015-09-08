@@ -17,12 +17,17 @@
 		<p ng-if="error">Error: <strong>{{ error }}</strong></p>
 	</div> 
 	<div ng-show="authData">
-		<h2>Account</h2>
-		<p>Logged in user: <strong>{{ authData.uid }}</strong></p>
+		<h2>Your Account</h2>
+		<p>
+			Logged in user: <br>
+			User ID: <strong>{{ authData.uid }}</strong><br>
+			Email: <strong>{{ authData.password.email }}</strong>
+		</p>
 		<button ng-click="logout($event)" class="btn">Logout</button>
 		<p ng-if="error">Error: <strong>{{ error }}</strong></p>
 		<p></p>
-		<h2>Reset default dashboard</h2>
+		<h2>Reset</h2>
+		<p>Reset your settings and restore default dashboard(s).</p>
 		<button ng-click="resetDefault()" class="btn">Reset to Default</button>		
 	</div>
 </div>
