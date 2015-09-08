@@ -82,10 +82,16 @@
               <a ng-href="#/{{item.id}}">{{item.title}}</a>
             </li>
             <li  ng-show="authData">
-              <a style="cursor: pointer;" ng-click="nav.create()">Create</a>
+              <a style="cursor: pointer;" ng-click="nav.create()">
+                <i class="glyphicon glyphicon-plus-sign"></i>
+                Create
+              </a>
             </li>
             <li ng-show="authData">
-              <a style="cursor: pointer;" ng-click="logout($event)">Log out</a>
+              <a style="cursor: pointer;" ng-click="logout($event)">
+                <i class="glyphicon glyphicon-log-out"></i>
+                Log out
+              </a>
             </li>            
           </ul>
         </div>

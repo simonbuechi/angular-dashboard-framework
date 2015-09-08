@@ -29,7 +29,7 @@ angular.module('fireboard', ['adf',
                             'adf.widget.news', 
                             'adf.widget.markdown', 
                             'adf.widget.iframe', 
-                            'adf.widget.chart', 
+                            'adf.widget.chart',
                             'adf.widget.data', 
                             'adf.widget.login', 
                             'ngRoute'])
@@ -106,10 +106,10 @@ angular.module('fireboard', ['adf',
     };
 
     this.create = function(){
-      var id = 'board' + new Date().getTime();
+      var id = new Date().getTime();
       var model =  {
         "id": id,
-        "title": "New",
+        "title": "New Board",
         "structure": "4-4-4",
         "rows": [{
           "columns": [{
@@ -125,6 +125,7 @@ angular.module('fireboard', ['adf',
         }]
       };
       storeService.set(id, model);
+      $location.path("/" + id);
       console.log("new dashboard created user: " + $rootScope.uid + " id: " + id);
     };
 

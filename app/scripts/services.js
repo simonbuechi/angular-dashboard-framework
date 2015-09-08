@@ -79,9 +79,13 @@ angular.module('adf.provider')
               for (var i in data.feed.entry) {
                 var name = data.feed.entry[i]['gsx$name']['$t'];
                 var value = data.feed.entry[i]['gsx$value']['$t'];
+                if(data.feed.entry[i]['gsx$trend']) {
+                  var trend = data.feed.entry[i]['gsx$trend']['$t']; 
+                }
                 feed.push({
                   name: name,
                   value: value,
+                  trend: (trend) ? trend : "undefined"
                 });
               };
               deferred.resolve(feed);
