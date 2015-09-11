@@ -1,9 +1,0 @@
-<div class="news">
-  <div class="alert alert-info" ng-if="!feed">
-    Please insert a feed url in the widget configuration
-  </div> 
-  <div ng-repeat="entry in feed" class="col-md-6 col-sm-12 col-lg-4 wall">
-      <div class="bignumber-value" ng-class="highlightClass({{entry}})">{{entry.value}}</div>  	
-      <div class="bignumber-title">{{entry.name}}</div>
-  </div>
-</div>

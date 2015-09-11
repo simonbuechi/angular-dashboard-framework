@@ -10,6 +10,15 @@
 [submodule "app/widgets/version"]
 	path = app/widgets/version
 	url = https://github.com/sdorra/adf-widget-version
+[submodule "app/widgets/iframe"]
+	path = app/widgets/iframe
+	url = https://github.com/sdorra/adf-widget-iframe
 [submodule "app/widgets/markdown"]
 	path = app/widgets/markdown
 	url = https://github.com/simonbuechi/adf-widget-markdown
+[submodule "app/widgets/data"]
+	path = app/widgets/data
+	url = https://github.com/simonbuechi/adf-widget-data
+[submodule "app/widgets/chart"]
+	path = app/widgets/chart
+	url = https://github.com/simonbuechi/adf-widget-chart
