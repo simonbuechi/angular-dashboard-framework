@@ -32,6 +32,7 @@ angular.module('fireboard', ['adf',
                             'adf.widget.chart',
                             'adf.widget.data', 
                             'adf.widget.login', 
+                            'adf.widget.version',
                             'ngRoute'])
   .run(['loginService', '$rootScope', '$location', 'FIREBASEURL', function(loginService, $rootScope, $location, FIREBASEURL) {
     $rootScope.auth = loginService.init('/start');

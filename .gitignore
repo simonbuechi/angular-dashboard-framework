@@ -4,9 +4,6 @@
 # bower
 /app/components/
 
-#widgets
-/app/widgets/
-
 # gulp build
 /build/
 /.tmp/
