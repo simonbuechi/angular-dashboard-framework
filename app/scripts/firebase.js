@@ -79,12 +79,15 @@ angular.module('fireboard')
         if ($rootScope.uid) {
           var ref = new Firebase(FIREBASEURL + "/users/" + $rootScope.uid + "/boards/");
           return $firebaseArray(ref);
-        }
+        } 
       },
       get: function(id){
         if ($rootScope.uid) {
           var ref = new Firebase(FIREBASEURL + "/users/" + $rootScope.uid + "/boards/" + id);
           return $firebaseObject(ref).$loaded();
+        } else {
+          var ref = new Firebase(FIREBASEURL + "/public/boards/" + id);
+          return $firebaseObject(ref).$loaded(); 
         }
       },
       getByPath: function(path){

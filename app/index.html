@@ -79,7 +79,7 @@
         <div collapse="nav.navCollapsed" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">         
             <li ng-class="nav.navClass('/' + item.$id)" ng-repeat="item in nav.items | orderBy: '-item.id'"  ng-show="authData">
-              <a ng-href="#/{{item.id}}">{{item.title}}</a>
+              <a ng-href="#/user/{{item.id}}">{{item.title}}</a>
             </li>
             <li  ng-show="authData">
               <a style="cursor: pointer;" ng-click="nav.create()">

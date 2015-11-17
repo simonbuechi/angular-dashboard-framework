@@ -55,11 +55,21 @@ angular.module('fireboard', ['adf',
         templateUrl: 'partials/public.html',
         resolve: {
           data: function($route, storeService){
-            return storeService.getByPath("/public/boards/start");
+            return storeService.getByPath("/public/start");
           }
         }
       })
       .when('/:id', {
+        controller: 'dashboardCtrl',
+        controllerAs: 'dashboard',
+        templateUrl: 'partials/public.html',
+        resolve: {
+          data: function($route, storeService){
+            return storeService.get($route.current.params.id);
+          }
+        }
+      })
+      .when('/user/:id', {
         controller: 'dashboardCtrl',
         controllerAs: 'dashboard',
         templateUrl: 'partials/private.html',
@@ -79,6 +89,8 @@ angular.module('fireboard', ['adf',
   .controller('navigationCtrl', function($scope, $q, $location, storeService,  $rootScope, loginService, demoService){
     var nav = this;
     nav.navCollapsed = true;
+        $rootScope.$broadcast('navChanged');
+
     $rootScope.auth.$onAuth(function(authData) {
       $scope.authData = authData;
       if (authData) {
@@ -126,12 +138,14 @@ angular.module('fireboard', ['adf',
         }]
       };
       storeService.set(id, model);
-      $location.path("/" + id);
-      console.log("new dashboard created user: " + $rootScope.uid + " id: " + id);
+      $location.path("/user/" + id);
+    //  console.log("new dashboard created user: " + $rootScope.uid + " id: " + id);
     };
 
     $scope.$on('navChanged', function(){
       nav.items = storeService.getAll();
+      console.log("nav.items");
+      console.log(nav.items);
     });
 
 //    if (typeof $rootScope.uid === "undefined" && $rootScope.auth) {
