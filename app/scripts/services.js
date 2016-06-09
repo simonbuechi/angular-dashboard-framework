@@ -28,6 +28,29 @@
  * read/get data request services
  */
 angular.module('adf.provider')
+/*  .config(function(TabletopProvider) { 
+    TabletopProvider.setTabletopOptions({ 
+      key: '1HvvVTzvqcXbhw3CHKSg5s9nwBbT-MKngSCRaOgk-EuE', 
+      simpleSheet: true 
+    }); 
+  }) */
+  .service('tabletopService', function ($q, $window) {
+    return {
+      get: function(url){
+        var tabletopResponse;
+        var tabletopOptions = {
+          key: url,
+          simpleSheet: true ,
+          callback: function(data, Tabletop) {
+            tabletopResponse.resolve([data, Tabletop]);
+          }
+        };
+        tabletopResponse = $q.defer();
+        $window.Tabletop.init(tabletopOptions);
+        return tabletopResponse.promise;
+      }
+    };
+  })
   .service('jsonNumberService', function($q, $http){
     return {
       get: function(url, thresholds){
@@ -148,10 +171,14 @@ angular.module('adf.provider')
     };
   });
 
-/*
+
+
+
+
+  /*
  * angular c3 charts
  */
-angular.module('angular-c3', [])
+ angular.module('angular-c3', [])
   .factory('c3Factory', ['$q', '$timeout', function($q, $timeout) {
     var defer = $q.defer();
     var chart = {};
@@ -208,3 +235,4 @@ angular.module('angular-c3', [])
       }
     };
   }]);
+

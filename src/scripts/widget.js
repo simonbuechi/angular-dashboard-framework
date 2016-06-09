@@ -25,7 +25,7 @@
 'use strict';
 
 angular.module('adf')
-  .directive('adfWidget', function($log, $modal, dashboard, adfTemplatePath) {
+  .directive('adfWidget', function($log, $uibModal, dashboard, adfTemplatePath) {
 
     function preLink($scope){
       var definition = $scope.definition;
@@ -98,7 +98,7 @@ angular.module('adf')
             backdrop: 'static'
           };
 
-          var instance = $modal.open(opts);
+          var instance = $uibModal.open(opts);
           editScope.closeDialog = function() {
             instance.close();
             editScope.$destroy();
@@ -139,7 +139,7 @@ angular.module('adf')
             windowClass: (definition.fullScreen) ? 'dashboard-modal widget-fullscreen' : 'dashboard-modal'
           };
 
-          var instance = $modal.open(opts);
+          var instance = $uibModal.open(opts);
           fullScreenScope.closeDialog = function () {
             instance.close();
             fullScreenScope.$destroy();

@@ -187,7 +187,7 @@ gulp.task('app', ['widget-templates', 'app-templates', 'dashboard-templates', 'c
       .pipe(assets.restore())
       .pipe($.useref())
       .pipe($.revReplace())
-      .pipe(gulp.dest('dist/app'));
+      .pipe(gulp.dest('dist/app/'));
 });
 
 /** livereload **/

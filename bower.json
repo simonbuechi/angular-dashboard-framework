@@ -6,7 +6,10 @@
     "dist/angular-dashboard-framework.css"
   ],
   "authors": [
-    {"name": "Simon Buechi", "email": "simon.buechi@gmail.com"}
+    {
+      "name": "Simon Buechi",
+      "email": "simon.buechi@gmail.com"
+    }
   ],
   "ignore": [
     ".tmp",
@@ -36,21 +39,22 @@
     "adf"
   ],
   "dependencies": {
-    "angular": "1.2.28",
-    "angular-bootstrap": "0.12.0",
+    "angular": "1.5.5",
+    "angular-bootstrap": "1.1.0",
     "bootstrap": "3.3.4",
     "Sortable": "1.1.1",
-    "d3": "3.5.0",
-    "c3": "0.4.10" 
+    "d3": "3.5.5",
+    "c3": "0.4.10",
+    "angular-tabletop": "^0.2.2"
   },
   "devDependencies": {
-    "angular-mocks": "1.2.28",
-    "angular-scenario": "1.2.28",
-    "angular-route": "1.2.28",
+    "angular-mocks": "1.5.5",
+    "angular-scenario": "1.5.5",
+    "angular-route": "1.5.5",
     "angular-local-storage": "0.1.5",
     "es5-shim": "~2.0.8"
   },
   "resolutions": {
-    "angular": "1.2.28"
+    "angular": "1.5.5"
   }
 }

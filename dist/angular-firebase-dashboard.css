@@ -298,11 +298,6 @@ h4 {
 .c3-xgrid, .c3-ygrid {
   stroke-dasharray: 3 3;
 }
-.c3-xgrid-focus {
-}
-
-.c3-text {
-}
 
 .c3-text.c3-empty {
   fill: #808080;
@@ -438,43 +433,52 @@ h4 {
 }
 
 
+
 /*
-** Tooltip
+** Calendar Chart
 */
-a.ttip {
-  position: relative;
-  display: inline;
+
+.item {
+  opacity: 0.6;
 }
-a.ttip span {
-  position: absolute;
-  width:250px;
-  color: #263238;
-  background: #B0BEC5;
-  text-align: left;
-  visibility: hidden;
-  border-radius: 3px;
-  padding: 12px 10px;
-  font-weight: normal;
-  text-transform: none;
-  font-size: 14px;
-  box-shadow: 0px 0px 5px #FFFFFF;
+
+.month {
+  fill: none;
+  stroke: #78909C;
+  stroke-width: 1px;
 }
-a.ttip span:after {
-  content: '';
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -8px;
-  width: 0; height: 0;
-  border-bottom: 8px solid #B0BEC5;
-  border-right: 8px solid transparent;
-  border-left: 8px solid transparent;
-}
-a:hover.ttip span {
-  visibility: visible;
+.col { fill:#546E7A; }
+.col1 { fill:#f32c1e; }
+.col2 { fill:#f77066; }
+.col3 { fill:#f55a4e; }
+.col4 { fill:#f8877f; }
+.col5 { fill:#aaa; }
+.col6 { fill:#80c883; }
+.col7 { fill:#5cb860; }
+.col8 { fill:#4caf50; }
+.col9 { fill:#449d48; }
+.col10 { fill:#3d8b40; }
+.coltoday { fill:#ECEFF1; }
+
+.marked {
   opacity: 1;
-  top: 30px;
-  left: 50%;
-  margin-left: -125px;
-  z-index: 999;
 }
+.pass {
+  opacity: 0.8;
+}
+.tbd {
+  fill: #263238;
+}
+text.cell {
+  fill: #263238;
+}
+text {
+  fill: #ECEFF1;
+}
+
+  /* Tooltip styling */
+.d3-tip { line-height: 1; font-weight: normal; padding: 10px; background: rgba(0, 0, 0, 0.7); color: #ECEFF1; border-radius: 2px; }
+
+.d3-tip:after { box-sizing: border-box; display: inline; font-size: 10px; width: 100%; line-height: 1; color: rgba(0, 0, 0, 0.7); content: "\25BC"; position: absolute; text-align: center; }
+
+.d3-tip.n:after { margin: -1px 0 0 0; top: 100%; left: 0; }
