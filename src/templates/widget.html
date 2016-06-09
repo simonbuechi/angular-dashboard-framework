@@ -11,9 +11,9 @@
           <i class="glyphicon glyphicon-move"></i>
         </a>
         <!-- about infobox -->
-        <a href="" ng-show="config.about && !editMode" class="ttip">
+        <a href="" ng-show="config.about && !editMode" uib-popover="{{config.about}}" popover-placement="left">
           <i class="glyphicon glyphicon-info-sign"></i>
-          <span>{{config.about}}</span>
+          
         </a>
         <!-- collapse -->
         <a href="" title="collapse widget" ng-show="options.collapsible && !isCollapsed" ng-click="isCollapsed = !isCollapsed">
