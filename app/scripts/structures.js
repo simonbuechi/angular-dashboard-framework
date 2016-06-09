@@ -22,6 +22,14 @@ angular.module('adf.structures.base', ['adf'])
           }]
         }]
       })
+      .structure('12', {
+        rows: [{
+          columns: [{
+            styleClass: 'col-sm-12 col-md-12 col-lg-12',
+            widgets: []
+          }]
+        }]
+      })
       .structure('4-4-4', {
         rows: [{
           columns: [{
