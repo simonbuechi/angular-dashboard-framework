@@ -1,0 +1,13 @@
+<div class="news">
+  <div ng-if="config.type=='365d'" class="chart365d">
+    <d3-calendar365d data="feed"></d3-calendar365d>
+  </div>
+  <div ng-if="config.type=='1080m'">
+   <!--   <div class="">
+    <label><input id="relevance" type="checkbox">Show relevance</label>
+      <label><input id="quality" type="checkbox">Show quality</label>
+      <label><input id="untilnow" type="checkbox">Show  only until now</label>
+    </div>  -->
+    <d3-calendar1080m data="feed"></d3-calendar1080m>
+  </div>
+</div>
